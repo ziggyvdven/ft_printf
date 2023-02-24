@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+         #
+#    By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/23 11:22:03 by zvandeven         #+#    #+#              #
-#    Updated: 2023/02/23 11:37:29 by zvandeven        ###   ########.fr        #
+#    Updated: 2023/02/24 17:19:47 by zvan-de-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,25 +15,27 @@ OBJS 	= $(SRCS:.c=.o)
 CC	 	= gcc
 CFLAGS 	= -Wall -Wextra -Werror -g
 RM		= rm -f
-SRCS	= ft_printf.c \
+SRCS	= ft_printf.c ft_putchar.c ft_putnbr.c ft_putstr.c\
+ft_strlen.c ft_putunsign.c ft_putnbr_base.c\
 
-
-.c.o :
-	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o)
-
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
 
 all: $(NAME)
 
+%.o: %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(NAME): $(OBJS)
+	ar rc $(NAME) $(OBJS)
+
+main: $(NAME) main.c
+	$(CC) $(CFLAGS) -lftprintf -L. -o $@ main.c
+
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(OBJS) 
 
 fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY:		flcean all clean re
-	
+.PHONY:		all bonus clean fclean re

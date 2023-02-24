@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   printf.h                                           :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zvandeven <zvandeven@student.42.fr>        +#+  +:+       +#+        */
+/*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 11:20:52 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/02/23 16:25:16 by zvandeven        ###   ########.fr       */
+/*   Created: 2023/01/11 18:49:26 by zvan-de-          #+#    #+#             */
+/*   Updated: 2023/02/24 10:46:03 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PRINTF_H
-# define PRINTF_F
+#include "ft_printf.h"
 
-#include <stdarg.h>
-
-int 	ft_printf(const char *, ...);
-size_t	ft_strlen(const char *s);
-
-
-#endif
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}

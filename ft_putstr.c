@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/13 11:40:53 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/02/24 10:46:16 by zvan-de-         ###   ########.fr       */
+/*   Created: 2023/01/15 18:03:06 by zvan-de-          #+#    #+#             */
+/*   Updated: 2023/02/24 16:26:17 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-size_t	ft_strlen(const char *s)
+int	ft_putstr(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (s[i] != '\0')
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (str[i] != '\0')
+	{
+		ft_putchar(str[i]);
 		i++;
+	}
 	return (i);
 }
