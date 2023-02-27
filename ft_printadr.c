@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_printadr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/22 11:07:25 by zvandeven         #+#    #+#             */
-/*   Updated: 2023/02/27 15:28:17 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:39:45 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ft_printf.h"
 
-int	ft_printnbr(unsigned int nbr, unsigned int len, char *base)
+int	ft_printnbr_adr(unsigned long nbr, unsigned int len, char *base)
 {
 	unsigned long int	lnbr;
 	int					count;
@@ -21,13 +21,13 @@ int	ft_printnbr(unsigned int nbr, unsigned int len, char *base)
 	lnbr = nbr;
 	if (lnbr >= len)
 	{
-		count = ft_printnbr(lnbr / len, len, base) + 1;
+		count = ft_printnbr_adr(lnbr / len, len, base) + 1;
 	}
 	ft_putchar(base[lnbr % len]);
 	return (count);
 }
 
-int	ft_putnbr_base(unsigned int nbr, int count, int b)
+int	ft_putnbr_base_adr(unsigned long nbr, int count, int b)
 {
 	int		len;
 	char	*base;
@@ -39,6 +39,16 @@ int	ft_putnbr_base(unsigned int nbr, int count, int b)
 		base = "0123456789ABCDEF";
 	while (base[len] != '\0')
 	len ++;
-	count = ft_printnbr(nbr, len, base);
+	count = ft_printnbr_adr(nbr, len, base);
+	return (count);
+}
+
+int	ft_printadr(va_list *args)
+{
+	int		count;
+
+	count = 2;
+	write(1, "0x", 2);
+	count += ft_putnbr_base_adr(va_arg(*args, unsigned long), count, 1);
 	return (count);
 }

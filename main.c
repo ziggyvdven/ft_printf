@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 13:51:29 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/02/24 18:47:09 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:48:27 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,16 @@
 
 int	main(void)
 {
-	char			s[] = "hello there";
+	char			s[] = "Hjkkjkjfello there";
 	int				d;
 	char			c;
-	unsigned int 	u;
+	unsigned int	u;
+	int				*ptr;
 
-	d = 4000;
+	d = 2;
 	c = 'X';
-	u = -6;
+	u = 4278193112;
+	ptr = &d;
 	ft_printf("Value = %d\n", ft_printf("ft_printf for c = %c\n", c));
 	printf("Value = %d\n", printf("   printf for c = %c\n", c));
 	printf("\n");
@@ -45,4 +47,10 @@ int	main(void)
 	printf("\n");
 	printf("Value = %d\n", ft_printf("ft_printf for X %X\n", u));
 	printf("Value = %d\n", printf("   printf for X %X\n", u));
+	printf("\n");
+	printf("Value = %d\n", ft_printf("ft_printf for p %p\n", &d));
+	printf("Value = %d\n", printf("   printf for p %p\n", &d));
+	printf("\n");
+	printf("value = %d\n", ft_printf("%%%c", 'x'));
+	printf("value = %d\n", printf("%%%c", 'x'));
 }
