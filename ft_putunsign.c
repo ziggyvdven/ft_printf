@@ -6,7 +6,7 @@
 /*   By: zvan-de- <zvan-de-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 16:37:19 by zvan-de-          #+#    #+#             */
-/*   Updated: 2023/02/24 16:47:01 by zvan-de-         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:31:24 by zvan-de-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	ft_ucheckzero(long int a)
 	}
 }
 
-int	ft_udcount(unsigned int n)
+int	ft_ucount(unsigned int n)
 {
 	long unsigned int	tempn;
 	unsigned int		count;
@@ -57,6 +57,6 @@ int	ft_putunsing(unsigned int n, int count)
 		write (1, &str[i], 1);
 		--i;
 	}
-	count = ft_udcount(n);
+	count = ft_ucount(n);
 	return (count);
 }
